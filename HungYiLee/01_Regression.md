@@ -13,10 +13,10 @@ $$
 ## Loss Function $L$:
 
 $$
-\begin{equation}\begin{split}
-L(f)&=L(w,b)\\
+\begin{equation} \begin{split}
+L(f)&=L(w,b) \\
 &=\sum^{10}_{n=1}(\hat y^n-(b+w·x^n_{i}))^2
-\end{split}\end{equation}
+\end{split} \end{equation}
 $$
 
 
@@ -24,8 +24,8 @@ $$
 ## Pike the best Function:
 
 $$
-f^*=\mathop{argmin}_{f}L(f)\\
-w^*,b^*=\mathop{argmin}_{w,b}L(w,b)
+f^*=\mathop {argmin}_{f} L(f) \\
+w^*,b^*=\mathop {argmin}_{w,b} L(w,b)
 $$
 
 > PS：线性代数可以直接解出这个最好的$f$
@@ -36,7 +36,7 @@ $$
 
 现假设**只有一个**参数$w$
 $$
-w^*=\mathop{argmin}_{w}L(w)
+w^*=\mathop {argmin}_{w} L(w)
 $$
 
 1. 随机初始化$w^0$
@@ -52,7 +52,7 @@ $$
 
 现假设有两个参数$w,b$，和上面情况其实类似
 $$
-w^*,b^*=\mathop{argmin}_{w,b}L(w,b)
+w^*,b^*=\mathop {argmin}_{w,b} L(w,b)
 $$
 
 1. 随机初始化$w^0, b^0$
@@ -63,8 +63,8 @@ $$
 > $$
 > \nabla L=
 > \left[ \begin{matrix}
-> \frac{\partial L}{\partial w}\\\frac{\partial L}{\partial b}
-> \end{matrix} \right]_{gradient}
+> \frac {\partial L}{\partial w} \\ \frac {\partial L}{\partial b}
+> \end{matrix} \right] _{gradient}
 > $$
 
 
@@ -80,22 +80,22 @@ $$
 将多种类别的Linear Function合并为一个大的Linear Function
 $$
 \begin{split}
-if\ x_s=P \quad &y=b_1+w_1·x_{cp}\\
+if\ x_s=P \quad &y=b_1+w_1·x_{cp} \\
 if\ x_s=W \quad &y=b_2+w_2·x_{cp}
 \end{split}
 $$
 合并为
 $$
-\begin{equation}\begin{split}
-y&=b_1·\delta(x_s=P)+w_1·\delta(x_s=P)x_{cp}\\
+\begin{equation} \begin{split}
+y&=b_1·\delta(x_s=P)+w_1·\delta(x_s=P)x_{cp} \\
 &=b_2·\delta(x_s=W)+w_2·\delta(x_s=W)x_{cp}
-\end{split}\end{equation}
+\end{split} \end{equation}
 $$
 
 > 其中
 > $$
 > \delta(x_s=P)=\begin{cases}
-> 1&if\ x_s=P\\
+> 1&if\ x_s=P \\
 > 0&otherwise
 > \end{cases}
 > $$
@@ -108,7 +108,7 @@ $$
 
 在Loss Function中把一些Knowledge放进去（范式作为惩罚项），例如
 $$
-L=\sum_n(\hat y^n-(b+\sum w_ix_i))^2+\lambda\sum(w_i)^2
+L=\sum_n(\hat y-(b+\sum w_ix_i))^2+\lambda\sum(w_i)^2
 $$
 此时就是$w_i$越小越好，即function越平滑越好。此时output对输入的变化就很不敏感。
 
