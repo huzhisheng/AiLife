@@ -40,7 +40,26 @@ $$
 
 把每次抽样并计算出来的function $f^*$看作是一个抽样，则简单的Model一般其Variance就较小。
 
+简单的Model有较大的bias，但有较小的variance；复杂的Model有较小的bias，但有较大的variance；
+
+Error来自于bias很大，则是underfitting；error来自于variance很大，则是overfitting；
 
 
-> ML Lecture2 18分34秒
 
+**判断Model是bias大还是variance大**：
+
+如果Model无法fit训练数据，则是bias大；
+
+如果Model能fit训练数据，但在testing data上面误差很大，则是variance大；
+
+
+
+如果bias大，需要redesign模型；
+
+如果variance大，需要**增加data**(甚至可以自己制作假data：翻转图片、男声转女声、手动加噪音) or 加正则式regularization。
+
+
+
+## N-fold Cross Validation
+
+例如3-fold，就把Training Set均分成3份，进行3轮训练。第i轮把第i份数据看作是Vailidation Set其余看作是Training Set，这样3轮训练就得到1个Function的3个Model，并且得到它们在Validation Set的Error，计算3个Error的均值，选择均值最小的一个Function，作为最后的Model，并在整个Training Set上再去训练一遍，再拿到真正的Testing Set上去测试。

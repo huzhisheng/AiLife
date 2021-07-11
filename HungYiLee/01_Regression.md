@@ -15,7 +15,7 @@ $$
 $$
 \begin{equation} \begin{split}
 L(f)&=L(w,b) \\
-&=\sum^{10}_{n=1}(\hat y^n-(b+w·x^n_{i}))^2
+&=\sum^{10}_{n=1} (\hat y^n-(b+w·x^n_{i}))^2
 \end{split} \end{equation}
 $$
 
@@ -24,8 +24,8 @@ $$
 ## Pike the best Function:
 
 $$
-f^*=\mathop {argmin}_{f} L(f) \\
-w^*,b^*=\mathop {argmin}_{w,b} L(w,b)
+f^* =\mathop {argmin}_{f} L(f) \\
+w^*,b^* =\mathop {argmin}_{w,b} L(w,b)
 $$
 
 > PS：线性代数可以直接解出这个最好的$f$
