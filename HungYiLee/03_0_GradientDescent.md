@@ -62,7 +62,7 @@ $$
 
 #### Adagrad的思想
 
-![image-20210711160119336](.\images\image00.png)
+![image-20210711160119336](/images/image00.png)
 
 上图是L分别随$w_1$和$w_2$的变化曲线。
 
@@ -102,7 +102,7 @@ $$
 
 如果不同属性分布的range不同，那么建议做Scaling。
 
-![image-20210711193854772](.\images\image01.png)
+![image-20210711193854772](/images/image01.png)
 
 如果不scaling，则会在训练后期更新困难。
 
