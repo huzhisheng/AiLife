@@ -229,5 +229,55 @@ $$
 
 
 
-> [TA 补充课] Optimization for Deep Learning (2/2)  33min
+## Weight Decay
+
+在Loss中如果考虑了L2正则项，
+$$
+L_{l_2}=L(\theta)+\gamma||\theta||^2
+$$
+那么在微分L时到底代不代入这个L2正则项呢，比如我们在SGDM中的Momentum到底累加动量时（以及Adam之类算法在算法学习率分母时与L有关的变量）是将$L_{l_2}$的微分累加还是只累加$L(\theta)$的微分？
+
+之前所有把L中都带上了L2正则项的方法都叫$L2\ regularization$，而2017年有人提出来在计算$m$或学习率分母中的$v$时如果不把Loss代入L2正则项，而只是在更新$\theta$时考虑L2正则项的话，这种方法就叫weight decay。相关的方法叫AdamW和SGDW。
+
+
+
+## Dropout
+
+Dropout方法就是随机地将一些神经单元的输出给消除掉，这样的目的是争取让每个神经元都能学习到有用的信息，这样当一部分神经元失效时，让另一些神经元代替发挥关键作用，增强Model的鲁棒性。
+
+
+
+## Gradient Noise
+
+Gradient noise就是在每次更新时将gradient增加一个满足高斯分布的随机变量
+$$
+g_{t,i}=g_{t,i}+N(0,\sigma_t^2) \\
+\sigma_t=\frac c{(1+t)^\gamma}
+$$
+当t越大时随机变量方差就越小，即初始让噪声方差大，在训练后期就越来越稳定。
+
+
+
+## Curriculum Learning
+
+意思就是说一开始训练时用clean data(or easy data)，等训练进行一段时间后再用noisy data(or difficult data)，这样做是因为刚开始模型都比较随机，而且一开始的训练会大幅度决定整个训练过程的走向，因此一开始用比较好的数据去引导Model朝着一个比较好的minimum前进。
+
+
+
+## Fine-tuning
+
+意思就是将预训练的模型进行针对任务的后训练。
+
+
+
+## 什么时候用SGDM?
+
+1. CV
+
+## 什么时候用Adam?
+
+1. NLP
+2. Speech synthesis
+3. GAN
+4. RL(也有SGDM)
 
